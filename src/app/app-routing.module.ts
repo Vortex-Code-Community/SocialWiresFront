@@ -8,7 +8,15 @@ const routes: Routes = [
       import("./layout/principal/principal.module").then(
         (m) => m.PrincipalModule
       ),
-  }, {path: "**", redirectTo: "feature"}
+  },
+  {
+    path: "auth",
+    loadChildren: () =>
+      import("./layout/auth/auth.module").then(
+        (m) => m.AuthModule
+      ),
+  }, {path: "**", redirectTo: "auth"}
+  
 ];
 
 @NgModule({
